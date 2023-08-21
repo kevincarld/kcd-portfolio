@@ -4,7 +4,7 @@
 
 @layer components {
   .container {
-    @apply max-w-full wide:max-w-[1480px];
+    @apply max-w-full wide:max-lg-[960px];
     @apply mx-auto;
     @apply px-[1.5rem] d:px-[2rem] wide:p-0;
   }

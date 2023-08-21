@@ -8,6 +8,14 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    screens: {
+      sm: "360px",
+      md: "768px",
+      lg: "1024px",
+      d: "1280px",
+      wide: "1600px",
+      hd: "1900px",
+    },
     extend: {
       keyframes: {
         "accordion-down": {
