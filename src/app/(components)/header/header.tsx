@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="container flex justify-between pt-6 md:pt-10">
+    <header id="top" className="container flex justify-between pt-6 md:pt-10">
       <div className="flex space-x-2 md:space-x-5">
         <Avatar>
           {/* <AvatarImage src="https://github.com/shadcn.png" /> */}

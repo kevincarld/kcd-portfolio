@@ -4,6 +4,8 @@ import Header from "./(components)/header/header";
 import JotaiProvider from "@/lib/jotai-provider";
 import ThemeToggler from "@/lib/theme-toggler";
 import { Work_Sans } from "next/font/google";
+import Footer from "./(components)/footer/footer";
+
 const workSans = Work_Sans({
   subsets: ["latin"],
 });
@@ -24,6 +26,7 @@ export default function RootLayout({
         <body className={`${workSans.className} bg-gray-50 dark:bg-black`}>
           <Header />
           {children}
+          <Footer />
         </body>
       </ThemeToggler>
     </JotaiProvider>
