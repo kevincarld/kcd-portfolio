@@ -52,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
         {variant === "default" && (
-          <FiArrowUpRight className="text-lg ml-2 font-light" />
+          <FiArrowUpRight className="text-base ml-2 font-light" />
         )}
       </Comp>
     );
