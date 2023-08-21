@@ -6,10 +6,10 @@
   .container {
     @apply max-w-full lg:max-w-[960px];
     @apply mx-auto;
-    @apply px-[1.5rem] d:px-[2rem] wide:p-0;
+    @apply px-[1rem] d:px-[1.5rem] lg:p-0;
   }
 
   body {
-    @apply text-gray-600 dark:text-gray-300;
+    @apply text-gray-700 dark:text-gray-300;
   }
 }
