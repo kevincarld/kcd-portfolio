@@ -8,5 +8,9 @@ export default function ThemeToggler({
   children: React.ReactNode;
 }) {
   const themeMode = useAtomValue(themeAtom);
-  return <main className={themeMode}>{children}</main>;
+  return (
+    <html className={themeMode} lang="en">
+      {children}
+    </html>
+  );
 }

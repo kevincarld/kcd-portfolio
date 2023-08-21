@@ -15,17 +15,26 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <Link className="text-sm md:text-base" href="/">
+              <Link
+                className="text-sm md:text-base dark:text-gray-300"
+                href="/"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link className="text-sm md:text-base" href="/about">
+              <Link
+                className="text-sm md:text-base dark:text-gray-300"
+                href="/about"
+              >
                 About me
               </Link>
             </li>
             <li>
-              <Link className="text-sm md:text-base" href="/">
+              <Link
+                className="text-sm md:text-base dark:text-gray-300"
+                href="/"
+              >
                 Work timeline
               </Link>
             </li>

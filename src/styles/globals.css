@@ -8,4 +8,8 @@
     @apply mx-auto;
     @apply px-[1.5rem] d:px-[2rem] wide:p-0;
   }
+
+  body {
+    @apply text-black dark:text-gray-300;
+  }
 }
