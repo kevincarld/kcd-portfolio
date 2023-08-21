@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function Intro() {
   return (
-    <section className="container py-8 md:flex md:justify-between md:py-14">
+    <section className="container-sm py-10 md:flex md:justify-between">
       <div className="md:flex md:flex-col">
         <h1 className="capitalize text-black dark:text-white font-semibold text-3xl lg:text-4xl">
           kevin carl david
         </h1>
-        <h2 className="text-sm lg:text-base">Fullstack Developer</h2>
+        <p className="text-sm lg:text-base">Fullstack Developer</p>
 
         <div className="hidden md:flex flex-1 items-end">
           <div className="flex flex-1 items-center">
@@ -25,7 +25,7 @@ export default function Intro() {
         </div>
       </div>
 
-      <p className="py-8 max-w-md md:py-0">
+      <p className="py-8 max-w-sm md:py-0">
         Experienced web developer with 5+ years specializing in WordPress
         customization. Transitioned to front-end development, creating immersive
         websites with React, Next.js, Chakra UI, and Tailwind CSS. Skilled in

@@ -8,6 +8,11 @@
     @apply mx-auto;
     @apply px-[1rem] d:px-[1.5rem] lg:p-0;
   }
+  .container-sm {
+    @apply max-w-full lg:max-w-[860px];
+    @apply mx-auto;
+    @apply px-[1rem] d:px-[1.5rem] lg:p-0;
+  }
 
   body {
     @apply text-gray-700 dark:text-gray-300;
