@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useLayoutEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -33,7 +32,9 @@ const mockData = [
 ];
 
 export default function Marquee() {
-  const [initialX, animateX, marqueDuration] = useWindowSize();
+  const isD = useMediaQuery({
+    query: "(min-width: 1280px)",
+  });
 
   return (
     <section className="py-10 overflow-hidden">
@@ -42,11 +43,11 @@ export default function Marquee() {
       </div>
 
       <motion.div
-        initial={{ x: initialX }}
+        initial={{ x: "10%" }}
         animate={{
-          x: animateX,
+          x: "-120%",
           transition: {
-            duration: marqueDuration,
+            duration: mockData.length * (isD ? 5 : 2),
             repeat: Infinity,
             repeatType: "mirror",
             ease: "linear",
@@ -58,12 +59,13 @@ export default function Marquee() {
           const imgRatio = index % 2 !== 0 ? "aspect-square" : "aspect-[6/9]";
           return (
             <div
-              className="flex items-center flex-shrink-0 basis-[150px] sm:basis-[200px] md:basis-[300px] lg:basis-[350px]"
+              className="flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
               key={index}
             >
               <div>
                 <img
                   className={`${imgRatio} w-full object-cover rounded-xl`}
+                  draggable="false"
                   src={item.img}
                   alt={item.title}
                 />
@@ -82,33 +84,4 @@ export default function Marquee() {
       </div>
     </section>
   );
-}
-
-function useWindowSize() {
-  const [x, setX] = useState(["10%", "-65%", 1.3]);
-  const isMd = useMediaQuery({
-    query: "(min-width: 768px)",
-  });
-  const isD = useMediaQuery({
-    query: "(min-width: 1280px)",
-  });
-
-  useLayoutEffect(() => {
-    function updateAnimation() {
-      const marqueDuration = isD
-        ? mockData.length * 1
-        : isMd
-        ? mockData.length * 1.8
-        : mockData.length * 1.3;
-
-      const initialX = isD ? "3%" : isMd ? "5%" : "10%";
-      const animateX = isD ? "-50%" : isMd ? "-125%" : "-65%";
-
-      setX([initialX, animateX, marqueDuration]);
-    }
-    window.addEventListener("resize", updateAnimation);
-    updateAnimation();
-    return () => window.removeEventListener("resize", updateAnimation);
-  }, [isMd, isD]);
-  return x;
 }
