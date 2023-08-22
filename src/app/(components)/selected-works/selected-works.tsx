@@ -31,14 +31,17 @@ export default function SelectedWorks() {
             <a href="#">
               <figure>
                 <img
-                  className="aspect-video rounded-2xl w-full object-cover"
+                  className="aspect-video rounded-2xl w-full object-cover
+                  [clip-path:inset(3%_3%_3%_3%_round_1rem)] hover:[clip-path:inset(1%_1%_1%_1%_round_1rem)]
+                  transition-all duration-1000 ease-in-out
+                  "
                   src={item.img}
                   alt={item.title}
                 />
               </figure>
             </a>
 
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-between mt-4 px-6">
               <div>
                 <h3>{item.title}</h3>
                 <h4 className="text-sm">{item.category}</h4>
