@@ -41,6 +41,14 @@ export default function Header() {
                 Work timeline
               </Link>
             </li>
+            <li>
+              <Link
+                className="text-sm md:text-base dark:text-gray-300"
+                href="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
