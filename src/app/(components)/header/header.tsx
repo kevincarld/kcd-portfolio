@@ -10,7 +10,7 @@ export default function Header() {
     >
       <div className="flex space-x-2 md:space-x-5">
         <Avatar>
-          {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
+          {/* <AvatarImage src="https://avatars.githubusercontent.com/u/22188018?v=4" /> */}
           <AvatarImage src="" />
           <AvatarFallback>KD</AvatarFallback>
         </Avatar>
