@@ -1,7 +1,41 @@
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { getClient, gql } from "@/lib/apollo/client";
 
-export default function Intro() {
+export default async function Intro() {
+  const query = gql`
+    query {
+      kcdPortfolioSetting {
+        data {
+          attributes {
+            homepage {
+              __typename
+              ... on ComponentKcdHome {
+                title
+                subtitle
+                resumeLink
+                email
+                linkedinLink
+                githubLink
+                introParagraph
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+  let settings = null;
+  try {
+    const { data } = await getClient().query({
+      query,
+    });
+    settings = data;
+    console.log(settings);
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <section className="container-sm py-10 md:flex md:justify-between">
       <div className="md:flex md:flex-col">
