@@ -25,7 +25,7 @@ export default function SelectedWorks() {
         <h2 className="text-lg text-black dark:text-white">Selected Works</h2>
       </div>
 
-      <div className="grid grid-cols-1 space-y-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-10">
         {mockData.map((item, index) => (
           <div key={index}>
             <a href="#">
