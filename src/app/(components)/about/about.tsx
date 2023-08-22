@@ -2,6 +2,9 @@ import { FiGithub, FiDownload, FiLinkedin } from "react-icons/fi";
 export default function About() {
   return (
     <section className="max-w-[90%] lg:max-w-[860px] mx-auto py-10 my-10 border-y-[1px] border-gray-300 dark:border-gray-600">
+      <h1 className="text-black dark:text-white text-3xl lg:text-4xl text-medium mb-10">
+        A little bit about me
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
         <p>
           Hi! Kamusta! I'm an experienced web developer who embarked on a unique

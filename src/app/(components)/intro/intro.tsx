@@ -18,8 +18,8 @@ export default function Intro() {
 
             <span className="bg-gray-300 h-6 w-px ml-6" />
 
-            <Link href="/about-me">
-              <Button variant={"ghost"}>About me</Button>
+            <Link href="/my-timeline">
+              <Button variant={"ghost"}>My timeline</Button>
             </Link>
           </div>
         </div>
@@ -39,8 +39,8 @@ export default function Intro() {
 
         <span className="bg-gray-300 h-6 w-px ml-6" />
 
-        <Link href="/about-me">
-          <Button variant={"ghost"}>About me</Button>
+        <Link href="/my-timeline">
+          <Button variant={"ghost"}>My timeline</Button>
         </Link>
       </div>
     </section>
