@@ -58,7 +58,9 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="text-xs mt-6 opacity-70">&copy; 2023 Kevin Carl David</p>
+        <p className="text-xs mt-6 opacity-70">
+          &copy; {new Date().getFullYear()} Kevin Carl David
+        </p>
       </div>
     </footer>
   );
