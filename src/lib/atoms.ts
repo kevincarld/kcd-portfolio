@@ -1,9 +1,14 @@
 import { atom } from "jotai";
 
-// TODO: Update initial value to check local storage
-const themeAtom = atom<"light" | "dark">("light");
+type Theme = "light" | "dark";
+
+const themeAtom = atom<Theme>("light");
 const toggleThemeAtom = atom(null, (get, set) => {
-  set(themeAtom, get(themeAtom) === "light" ? "dark" : "light");
+  const newTheme = get(themeAtom) === "light" ? "dark" : "light";
+  set(themeAtom, newTheme);
+  if (localStorage) {
+    localStorage.setItem("kcd-theme", newTheme);
+  }
 });
 
 export { themeAtom, toggleThemeAtom };
