@@ -10,14 +10,14 @@ import {
 
 function makeClient() {
   const isDev = process.env.NODE_ENV === "development";
-  const strapiGraph: string | undefined = isDev
-    ? "http://127.0.0.1:1337/graphql"
-    : process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL;
+  const strapiGraph: string | undefined =
+    process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL;
   if (!strapiGraph) {
     throw new Error(
       "Supply a Strapi GraphQL URL in NEXT_PUBLIC_STRAPI_GRAPHQL_URL"
     );
   }
+
   const httpLink = new HttpLink({
     uri: strapiGraph,
   });
