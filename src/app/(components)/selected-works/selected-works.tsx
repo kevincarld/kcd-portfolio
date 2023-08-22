@@ -1,5 +1,3 @@
-import React from "react";
-
 const mockData = [
   {
     img: "https://placehold.co/600x400/c00c00/fff",
