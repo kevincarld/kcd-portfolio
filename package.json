@@ -15,6 +15,8 @@
     "surge": "git pull && yarn build && next-sitemap && surge --domain kcd-portfolio.surge.sh  --project ./out"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.0-rc.2",
+    "@apollo/experimental-nextjs-app-support": "^0.4.1",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
