@@ -55,7 +55,7 @@ const mockData = [
 export default function Timeline() {
   return (
     <section className="container py-10">
-      <ol className="relative border-l border-gray-200 dark:border-gray-700">
+      <ol className="ml-3 lg:ml-0 relative border-l border-gray-200 dark:border-gray-700">
         {mockData.map((item, index) => (
           <li key={index} className="mb-16 ml-8">
             <span className="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -left-3 ring-8 ring-gray-100 dark:ring-gray-900 dark:bg-gray-900">
