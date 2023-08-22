@@ -28,7 +28,7 @@ export default function Header() {
             <li>
               <Link
                 className="text-sm md:text-base dark:text-gray-300"
-                href="/about"
+                href="/about-me"
               >
                 About me
               </Link>

@@ -26,11 +26,10 @@ export default function Intro() {
       </div>
 
       <p className="py-8 max-w-sm md:py-0">
-        Experienced web developer with 5+ years specializing in WordPress
-        customization. Transitioned to front-end development, creating immersive
-        websites with React, Next.js, Chakra UI, and Tailwind CSS. Skilled in
-        headless integrations, including WordPress and Shopify. Currently, I'm
-        developing a booking platform using Next.js, Strapi, and Tailwind.
+        Hello there! I'm an enthusiastic web developer on a mission to create
+        exceptional digital experiences. With a strong foundation in WordPress
+        customization, I've evolved into a frontend specialist, harnessing
+        React, Next.js, and more to bring websites to life.
       </p>
 
       <div className="flex items-center md:hidden">
