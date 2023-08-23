@@ -66,13 +66,15 @@ export default async function Header() {
       className="container-sm flex justify-between pt-6 md:pt-10"
     >
       <div className="flex space-x-2 md:space-x-5">
-        <Avatar>
-          <AvatarImage
-            src={headerLogo ? `${strapiUrl}${headerLogo.url}` : ""}
-          />
-          <AvatarImage src="" />
-          <AvatarFallback>KD</AvatarFallback>
-        </Avatar>
+        <Link href="/">
+          <Avatar>
+            <AvatarImage
+              src={headerLogo ? `${strapiUrl}${headerLogo.url}` : ""}
+            />
+            <AvatarImage src="" />
+            <AvatarFallback>KD</AvatarFallback>
+          </Avatar>
+        </Link>
 
         <nav>
           <ul>
