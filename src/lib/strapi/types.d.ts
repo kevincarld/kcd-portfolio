@@ -261,8 +261,12 @@ export type KcdPortfolio = {
   category: Enum_Kcdportfolio_Category;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   featured?: Maybe<Scalars['Boolean']['output']>;
+  introduction?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   stack?: Maybe<Scalars['JSON']['output']>;
+  tasks?: Maybe<Scalars['String']['output']>;
+  thumbnail?: Maybe<UploadFileEntityResponse>;
   title: Scalars['String']['output'];
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -290,10 +294,13 @@ export type KcdPortfolioFiltersInput = {
   createdAt?: InputMaybe<DateTimeFilterInput>;
   featured?: InputMaybe<BooleanFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  introduction?: InputMaybe<StringFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<KcdPortfolioFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   stack?: InputMaybe<JsonFilterInput>;
+  tasks?: InputMaybe<StringFilterInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
@@ -301,8 +308,12 @@ export type KcdPortfolioFiltersInput = {
 export type KcdPortfolioInput = {
   category?: InputMaybe<Enum_Kcdportfolio_Category>;
   featured?: InputMaybe<Scalars['Boolean']['input']>;
+  introduction?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   stack?: InputMaybe<Scalars['JSON']['input']>;
+  tasks?: InputMaybe<Scalars['String']['input']>;
+  thumbnail?: InputMaybe<Scalars['ID']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
