@@ -260,6 +260,7 @@ export type KcdPortfolio = {
   __typename?: 'KcdPortfolio';
   category: Enum_Kcdportfolio_Category;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  featured?: Maybe<Scalars['Boolean']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   stack?: Maybe<Scalars['JSON']['output']>;
   title: Scalars['String']['output'];
@@ -287,6 +288,7 @@ export type KcdPortfolioFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
   category?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
+  featured?: InputMaybe<BooleanFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<KcdPortfolioFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
@@ -298,6 +300,7 @@ export type KcdPortfolioFiltersInput = {
 
 export type KcdPortfolioInput = {
   category?: InputMaybe<Enum_Kcdportfolio_Category>;
+  featured?: InputMaybe<Scalars['Boolean']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   stack?: InputMaybe<Scalars['JSON']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;

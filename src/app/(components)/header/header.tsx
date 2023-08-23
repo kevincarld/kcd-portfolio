@@ -1,4 +1,3 @@
-import { gql } from "@apollo/client";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Switch } from "../ui/switch";
 import Link from "next/link";
@@ -8,11 +7,11 @@ import {
   KcdPortfolioSettingHomepageDynamicZone,
   Maybe,
 } from "@/lib/strapi/types";
-import { getClient } from "@/lib/apollo/client";
+import { gql, apollo } from "@/lib/apollo/client";
 
 let strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 export default async function Header() {
-  const query = gql`
+  const GET_HEADER_LOGO = gql`
     query {
       kcdPortfolioSetting {
         data {
@@ -40,10 +39,10 @@ export default async function Header() {
     null;
   let headerLogo = null;
   try {
-    const { data } = await getClient().query<{
+    const { data } = await apollo.query<{
       kcdPortfolioSetting: KcdPortfolioSettingEntityResponse;
     }>({
-      query,
+      query: GET_HEADER_LOGO,
     });
 
     const settings:

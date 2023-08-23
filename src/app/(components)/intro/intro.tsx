@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { getClient, gql } from "@/lib/apollo/client";
+import { getClient, gql, apollo } from "@/lib/apollo/client";
 import {
   ComponentKcdHome,
   KcdPortfolioSettingEntityResponse,
@@ -8,7 +8,7 @@ import {
   Maybe,
 } from "@/lib/strapi/types";
 export default async function Intro() {
-  const query = gql`
+  const GET_HOME_SETTINGS = gql`
     query {
       kcdPortfolioSetting {
         __typename
@@ -36,10 +36,10 @@ export default async function Intro() {
 
   let homeSettings: Omit<ComponentKcdHome, "headerLogo"> | null = null;
   try {
-    const { data } = await getClient().query<{
+    const { data } = await apollo.query<{
       kcdPortfolioSetting: KcdPortfolioSettingEntityResponse;
     }>({
-      query,
+      query: GET_HOME_SETTINGS,
     });
 
     const settings:
