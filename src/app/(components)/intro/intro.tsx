@@ -53,7 +53,7 @@ export default async function Intro() {
   }
 
   return (
-    <section className="container-sm py-10 md:flex md:justify-between">
+    <section className="container-sm py-10 md:py-14 md:flex md:justify-between">
       {homeSettings && (
         <>
           <div className="md:flex md:flex-col">

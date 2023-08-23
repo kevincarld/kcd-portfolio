@@ -44,7 +44,7 @@ export default async function About() {
     console.error(error);
   }
   return (
-    <section className="max-w-[90%] lg:max-w-[860px] mx-auto py-10 my-10 border-y-[1px] border-gray-300 dark:border-gray-600">
+    <section className="max-w-[90%] lg:max-w-[860px] mx-auto py-10 md:py-14 my-10 md:my-14 border-y-[1px] border-gray-300 dark:border-gray-600">
       <h1 className="text-black dark:text-white text-3xl lg:text-4xl text-medium mb-10">
         {timelinePage?.title || ""}
       </h1>

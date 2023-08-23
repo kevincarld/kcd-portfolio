@@ -1,8 +1,8 @@
-import SelectedWorks from "@/app/(components)/selected-works/selected-works";
+import ProjectList from "@/app/(components)/project-list/project-list";
 export default function PortfolioPage() {
   return (
     <>
-      <SelectedWorks />
+      <ProjectList />
     </>
   );
 }

@@ -46,8 +46,8 @@ export default function Marquee() {
   });
 
   return (
-    <section className="py-10 overflow-hidden">
-      <div className="container-sm mb-6">
+    <section className="py-10 overflow-hidden md:py-16">
+      <div className="container-sm mb-6 md:mb-14">
         <h2 className="text-lg text-black dark:text-white">Selected works</h2>
       </div>
 
@@ -107,8 +107,8 @@ export default function Marquee() {
             })}
       </motion.div>
 
-      <div className="container-sm mt-6">
-        <Button className="flex md:ml-auto" variant="default">
+      <div className="container-sm mt-6 md:mt-14">
+        <Button className="flex" variant="default">
           <Link href="/portfolio">See all selected works</Link>
         </Button>
       </div>

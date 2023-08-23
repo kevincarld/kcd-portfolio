@@ -36,7 +36,7 @@ export default async function Timeline() {
     console.error(error);
   }
   return (
-    <section className="container py-10">
+    <section className="container py-10 md:py-16">
       <ol className="ml-3 lg:ml-0 relative border-l border-gray-200 dark:border-gray-700">
         {timelineItems.length &&
           timelineItems.map((item: ComponentKcdTimelineItem, index: number) => (
