@@ -34,7 +34,7 @@ export default async function Intro() {
     }
   `;
 
-  let homeSettings: ComponentKcdHome | null = null;
+  let homeSettings: Omit<ComponentKcdHome, "headerLogo"> | null = null;
   try {
     const { data } = await getClient().query<{
       kcdPortfolioSetting: KcdPortfolioSettingEntityResponse;
@@ -47,7 +47,7 @@ export default async function Intro() {
       | undefined = data.kcdPortfolioSetting.data?.attributes?.homepage;
     homeSettings = settings?.find(
       (setting) => setting?.__typename === "ComponentKcdHome"
-    ) as ComponentKcdHome;
+    ) as Omit<ComponentKcdHome, "headerLogo">;
   } catch (error) {
     console.log(error);
   }
@@ -64,7 +64,7 @@ export default async function Intro() {
 
             <div className="hidden md:flex flex-1 items-end">
               <div className="flex flex-1 items-center">
-                <Cta />
+                <Cta email={homeSettings.email} />
               </div>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default async function Intro() {
           <p className="py-8 max-w-sm md:py-0">{homeSettings.introParagraph}</p>
 
           <div className="flex items-center md:hidden">
-            <Cta />
+            <Cta email={homeSettings.email} />
           </div>
         </>
       )}
@@ -80,7 +80,10 @@ export default async function Intro() {
   );
 }
 
-const Cta = () => (
+type CtaProps = {
+  email: string;
+};
+const Cta = ({ email }: CtaProps) => (
   <>
     <Link href="/my-timeline">
       <Button variant={"default"}>My timeline</Button>
@@ -88,7 +91,7 @@ const Cta = () => (
 
     <span className="bg-gray-300 h-6 w-px ml-6" />
 
-    <a href="mailto:kevincarld@gmail.com">
+    <a href={`mailto:${email}`}>
       <Button variant="ghost">Email me</Button>
     </a>
   </>

@@ -1,8 +1,66 @@
+import { gql } from "@apollo/client";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Switch } from "../ui/switch";
 import Link from "next/link";
+import {
+  ComponentKcdHome,
+  KcdPortfolioSettingEntityResponse,
+  KcdPortfolioSettingHomepageDynamicZone,
+  Maybe,
+} from "@/lib/strapi/types";
+import { getClient } from "@/lib/apollo/client";
 
-export default function Header() {
+let strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+export default async function Header() {
+  const query = gql`
+    query {
+      kcdPortfolioSetting {
+        data {
+          attributes {
+            homepage {
+              __typename
+              ... on ComponentKcdHome {
+                __typename
+                headerLogo {
+                  data {
+                    attributes {
+                      formats
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  let homeSettings: Pick<ComponentKcdHome, "headerLogo" | "__typename"> | null =
+    null;
+  let headerLogo = null;
+  try {
+    const { data } = await getClient().query<{
+      kcdPortfolioSetting: KcdPortfolioSettingEntityResponse;
+    }>({
+      query,
+    });
+
+    const settings:
+      | Array<Maybe<KcdPortfolioSettingHomepageDynamicZone>>
+      | undefined = data.kcdPortfolioSetting.data?.attributes?.homepage;
+
+    homeSettings = settings?.find(
+      (setting) => setting?.__typename === "ComponentKcdHome"
+    ) as Pick<ComponentKcdHome, "headerLogo" | "__typename">;
+    headerLogo = homeSettings?.headerLogo.data?.attributes?.formats?.thumbnail;
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (!strapiUrl) {
+    throw new Error("Missing env variable NEXT_PUBLIC_STRAPI_URL");
+  }
   return (
     <header
       id="top"
@@ -10,7 +68,9 @@ export default function Header() {
     >
       <div className="flex space-x-2 md:space-x-5">
         <Avatar>
-          {/* <AvatarImage src="https://avatars.githubusercontent.com/u/22188018?v=4" /> */}
+          <AvatarImage
+            src={headerLogo ? `${strapiUrl}${headerLogo.url}` : ""}
+          />
           <AvatarImage src="" />
           <AvatarFallback>KD</AvatarFallback>
         </Avatar>

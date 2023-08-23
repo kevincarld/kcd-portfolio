@@ -49,6 +49,7 @@ export type ComponentKcdHome = {
   __typename?: 'ComponentKcdHome';
   email: Scalars['String']['output'];
   githubLink: Scalars['String']['output'];
+  headerLogo: UploadFileEntityResponse;
   id: Scalars['ID']['output'];
   introParagraph: Scalars['String']['output'];
   linkedinLink: Scalars['String']['output'];
