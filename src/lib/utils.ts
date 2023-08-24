@@ -9,7 +9,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function parseMarkdown(md: string) {
+export function parseMarkdown(md: string | undefined | null) {
+  if (!md) return "";
   return htmlParser(sanitize(parse(md)));
 }
 
