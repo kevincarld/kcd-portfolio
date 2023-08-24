@@ -48,7 +48,7 @@ export default function ProjectList() {
   const [init, setInit] = useState<boolean>(true);
 
   const pageSize = 4;
-  const sort = "createdAt:desc";
+  const sort = "rank:asc";
 
   useEffect(() => {
     getMoreProjects({
