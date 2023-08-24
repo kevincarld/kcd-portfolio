@@ -17,6 +17,7 @@ const GET_PORTFOLIOS = gql`
     kcdPortfolios(
       filters: { featured: { eq: true } }
       pagination: { limit: 8 }
+      sort: "rank:asc"
     ) {
       __typename
       data {
@@ -80,15 +81,13 @@ export default function Marquee() {
       >
         {loading
           ? new Array(10).fill(1).map((_, index) => {
-              const imgRatio =
-                index % 2 !== 0 ? "aspect-square" : "aspect-[6/9]";
               return (
                 <div
                   className="flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
                   key={index}
                 >
                   <div className="w-full">
-                    <Skeleton className={`${imgRatio} w-full rounded-lg`} />
+                    <Skeleton className={`aspect-ratio w-full rounded-lg`} />
                     <Skeleton className="mt-2 w-[80%] h-5" />
                     <Skeleton className="mt-2 w-[50%] h-5" />
                   </div>
@@ -96,8 +95,6 @@ export default function Marquee() {
               );
             })
           : portfolios?.map(({ attributes }, index) => {
-              const imgRatio =
-                index % 2 !== 0 ? "aspect-square" : "aspect-[6/9]";
               return (
                 <Link
                   href={`/portfolio/${slugifier(attributes?.title)}`}
@@ -106,7 +103,7 @@ export default function Marquee() {
                 >
                   <div>
                     <img
-                      className={`${imgRatio} w-full object-cover rounded-xl`}
+                      className={`aspect-square w-full object-cover rounded-xl`}
                       draggable="false"
                       src={attributes?.thumbnail?.data?.attributes?.url}
                       alt={

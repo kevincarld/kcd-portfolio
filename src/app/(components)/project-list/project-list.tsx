@@ -113,7 +113,7 @@ export default function ProjectList() {
                 <Link href={`/portfolio/${slugifier(project?.title)}`}>
                   <figure>
                     <img
-                      className="aspect-video rounded-2xl w-full object-cover [clip-path:inset(3%_3%_3%_3%_round_1rem)] hover:[clip-path:inset(1%_1%_1%_1%_round_1rem)] transition-all duration-1000 ease-in-out"
+                      className="aspect-square object-top rounded-2xl w-full object-cover [clip-path:inset(3%_3%_3%_3%_round_1rem)] hover:[clip-path:inset(1%_1%_1%_1%_round_1rem)] transition-all duration-1000 ease-in-out"
                       src={project?.thumbnail?.data?.attributes?.url}
                       {...(project?.thumbnail?.data?.attributes?.width && {
                         width: project?.thumbnail?.data?.attributes?.width,
