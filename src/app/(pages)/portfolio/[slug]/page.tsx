@@ -21,6 +21,7 @@ import {
 } from "react-icons/si";
 import { MdHttp } from "react-icons/md";
 import { BsCheck2Circle } from "react-icons/bs";
+import PageAnimate from "@/app/(components)/page-animate/page-animate";
 
 const logos = [
   { React: <SiReact /> },
@@ -100,75 +101,77 @@ export default async function SinglePortfolioPage({
 
   return (
     <section className="container-sm py-10 md:py-14 min-h-[70vh]">
-      <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
-        <div>
-          <img
-            className="aspect-square object-cover rounded-xl"
-            src={project?.thumbnail?.data?.attributes?.url}
-            alt="Image Description"
-          />
-        </div>
+      <PageAnimate>
+        <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+          <div>
+            <img
+              className="aspect-square object-cover rounded-xl"
+              src={project?.thumbnail?.data?.attributes?.url}
+              alt="Image Description"
+            />
+          </div>
 
-        <div className="mt-5 sm:mt-10 lg:mt-0">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="space-y-2 md:space-y-4">
-              <h1 className="font-medium text-3xl lg:text-4xl text-black dark:text-white">
-                {project?.title}
-              </h1>
-              <p>{project?.introduction}</p>
+          <div className="mt-5 sm:mt-10 lg:mt-0">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-2 md:space-y-4">
+                <h1 className="font-medium text-3xl lg:text-4xl text-black dark:text-white">
+                  {project?.title}
+                </h1>
+                <p>{project?.introduction}</p>
 
-              <div>
-                <ul role="list" className="space-y-2 sm:space-y-4">
-                  {project?.jobsDone?.tasks?.map(
-                    (string: string, index: number) => (
-                      <li key={index} className="flex space-x-3">
-                        <span className="flex text-sm mt-1 ">
-                          <BsCheck2Circle />
-                        </span>
+                <div>
+                  <ul role="list" className="space-y-2 sm:space-y-4">
+                    {project?.jobsDone?.tasks?.map(
+                      (string: string, index: number) => (
+                        <li key={index} className="flex space-x-3">
+                          <span className="flex text-sm mt-1 ">
+                            <BsCheck2Circle />
+                          </span>
 
-                        <span className="text-sm sm:text-base">{string}</span>
-                      </li>
-                    )
+                          <span className="text-sm sm:text-base">{string}</span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+
+                  {project?.link && (
+                    <a
+                      href={project?.link}
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                      className="block mt-6"
+                    >
+                      <Button variant="default">View project online</Button>
+                    </a>
                   )}
-                </ul>
-
-                {project?.link && (
-                  <a
-                    href={project?.link}
-                    target="_blank"
-                    referrerPolicy="no-referrer"
-                    className="block mt-6"
-                  >
-                    <Button variant="default">View project online</Button>
-                  </a>
-                )}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <h2 className="text-xl mt-10 text-black dark:text-white">
-        Technologies used:
-      </h2>
-      <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-        {project?.stack?.map((tech: string, index: number) => {
-          //@ts-ignore
-          const logo = logos.find((logo) => logo[tech]);
-          if (!logo) return null;
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"
-            >
-              <span className="text-6xl text-black dark:text-white">
-                {logo && Object.values(logo)[0]}
-              </span>
-              <span className="mt-3">{tech}</span>
-            </div>
-          );
-        })}
-      </div>
+        <h2 className="text-xl mt-10 text-black dark:text-white">
+          Technologies used:
+        </h2>
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+          {project?.stack?.map((tech: string, index: number) => {
+            //@ts-ignore
+            const logo = logos.find((logo) => logo[tech]);
+            if (!logo) return null;
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"
+              >
+                <span className="text-6xl text-black dark:text-white">
+                  {logo && Object.values(logo)[0]}
+                </span>
+                <span className="mt-3">{tech}</span>
+              </div>
+            );
+          })}
+        </div>
+      </PageAnimate>
     </section>
   );
 }
