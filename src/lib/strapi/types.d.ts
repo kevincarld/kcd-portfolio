@@ -70,7 +70,9 @@ export type ComponentKcdTimelineItem = {
   __typename?: 'ComponentKcdTimelineItem';
   date?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  icon: Enum_Componentkcdtimelineitem_Icon;
   id: Scalars['ID']['output'];
+  place?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
 
@@ -98,6 +100,11 @@ export type DateTimeFilterInput = {
   or?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   startsWith?: InputMaybe<Scalars['DateTime']['input']>;
 };
+
+export enum Enum_Componentkcdtimelineitem_Icon {
+  School = 'school',
+  Work = 'work'
+}
 
 export enum Enum_Kcdportfolio_Category {
   ApiIntegration = 'API_Integration',
@@ -265,6 +272,7 @@ export type KcdPortfolio = {
   jobsDone?: Maybe<Scalars['JSON']['output']>;
   link?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  rank?: Maybe<Scalars['Int']['output']>;
   slug: Scalars['String']['output'];
   stack?: Maybe<Scalars['JSON']['output']>;
   thumbnail?: Maybe<UploadFileEntityResponse>;
@@ -301,6 +309,7 @@ export type KcdPortfolioFiltersInput = {
   not?: InputMaybe<KcdPortfolioFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  rank?: InputMaybe<IntFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
   stack?: InputMaybe<JsonFilterInput>;
   title?: InputMaybe<StringFilterInput>;
@@ -314,6 +323,7 @@ export type KcdPortfolioInput = {
   jobsDone?: InputMaybe<Scalars['JSON']['input']>;
   link?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  rank?: InputMaybe<Scalars['Int']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
   stack?: InputMaybe<Scalars['JSON']['input']>;
   thumbnail?: InputMaybe<Scalars['ID']['input']>;
