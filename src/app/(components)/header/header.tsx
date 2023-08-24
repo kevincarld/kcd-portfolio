@@ -68,9 +68,7 @@ export default async function Header() {
       <div className="flex space-x-2 md:space-x-5">
         <Link href="/">
           <Avatar>
-            <AvatarImage
-              src={headerLogo ? `${strapiUrl}${headerLogo.url}` : ""}
-            />
+            <AvatarImage src={headerLogo ? `${headerLogo.url}` : ""} />
             <AvatarImage src="" />
             <AvatarFallback>KD</AvatarFallback>
           </Avatar>
