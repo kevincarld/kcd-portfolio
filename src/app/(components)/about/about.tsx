@@ -61,7 +61,7 @@ export default async function About() {
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 mt-6">
             <div className="flex space-x-6 items-center">
               <a
-                className="text-lg"
+                className="md:hover:-translate-y-1 md:duration-700 text-lg"
                 href={settings?.githubLink}
                 target="_blank"
               >
@@ -69,14 +69,18 @@ export default async function About() {
               </a>
 
               <a
-                className="text-lg"
+                className="md:hover:-translate-y-1 md:duration-700 text-lg"
                 href={settings?.linkedinLink}
                 target="_blank"
               >
                 <FiLinkedin />
               </a>
 
-              <a className="text-lg" href={settings?.resumeLink}>
+              <a
+                className="md:hover:-translate-y-1 md:duration-700 text-lg"
+                href={settings?.resumeLink}
+                target="_blank"
+              >
                 <FiDownload />
               </a>
             </div>
@@ -84,7 +88,7 @@ export default async function About() {
             <span className="hidden sm:block bg-gray-300 h-6 w-px mx-6 " />
 
             <a
-              className="text-sm text-gray-500 dark:text-gray-300"
+              className="md:hover:-translate-y-1 md:duration-700 text-sm text-gray-500 dark:text-gray-300"
               href={`mailto:${settings?.email}`}
             >
               kevincarld@gmail.com

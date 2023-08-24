@@ -112,12 +112,10 @@ export default async function SinglePortfolioPage({
         <div className="mt-5 sm:mt-10 lg:mt-0">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-2 md:space-y-4">
-              <h1 className="font-bold text-3xl lg:text-4xl text-black dark:text-white">
+              <h1 className="font-medium text-3xl lg:text-4xl text-black dark:text-white">
                 {project?.title}
               </h1>
-              <p className="text-gray-500 dark:text-gray-400">
-                {project?.introduction}
-              </p>
+              <p>{project?.introduction}</p>
 
               <div>
                 <ul role="list" className="space-y-2 sm:space-y-4">
@@ -128,9 +126,7 @@ export default async function SinglePortfolioPage({
                           <BsCheck2Circle />
                         </span>
 
-                        <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
-                          {string}
-                        </span>
+                        <span className="text-sm sm:text-base">{string}</span>
                       </li>
                     )
                   )}

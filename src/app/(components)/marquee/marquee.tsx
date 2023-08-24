@@ -80,14 +80,14 @@ export default function Marquee() {
         className="flex space-x-6 "
       >
         {loading
-          ? new Array(10).fill(1).map((_, index) => {
+          ? new Array(8).fill(1).map((_, index) => {
               return (
                 <div
-                  className="flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
+                  className=" md:ease-in-out md:duration-700 md:hover:-translate-y-8 flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
                   key={index}
                 >
                   <div className="w-full">
-                    <Skeleton className={`aspect-ratio w-full rounded-lg`} />
+                    <Skeleton className={`aspect-square w-full rounded-lg`} />
                     <Skeleton className="mt-2 w-[80%] h-5" />
                     <Skeleton className="mt-2 w-[50%] h-5" />
                   </div>
@@ -98,7 +98,7 @@ export default function Marquee() {
               return (
                 <Link
                   href={`/portfolio/${slugifier(attributes?.title)}`}
-                  className="flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
+                  className=" md:ease-in-out md:duration-700 md:hover:-translate-y-8 flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
                   key={index}
                 >
                   <div>
@@ -117,11 +117,17 @@ export default function Marquee() {
                         height: attributes?.thumbnail?.data?.attributes?.height,
                       })}
                     />
-                    <h3 className="capitalize">{attributes?.title}</h3>
-                    <p>{attributes?.category.replaceAll("_", " ")}</p>
-                    <p className="capitalize">
-                      {attributes?.stack?.join(", ")}
-                    </p>
+                    <div className="pl-2 pt-3">
+                      <h3 className="text-lg text-black dark:text-white capitalize">
+                        {attributes?.title}
+                      </h3>
+                      <p className="text-sm capitalize">
+                        {attributes?.category.replaceAll("_", " ")}
+                      </p>
+                      <p className="text-sm capitalize">
+                        {attributes?.stack?.join(", ")}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               );

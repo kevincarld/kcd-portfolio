@@ -126,9 +126,11 @@ export default function ProjectList() {
                   </figure>
                 </Link>
 
-                <div className="flex justify-between mt-4 px-6">
+                <div className="flex justify-between mt-3 px-6">
                   <div>
-                    <h3>{project?.title}</h3>
+                    <h3 className="text-black dark:text-white text-lg capitalize">
+                      {project?.title}
+                    </h3>
                     <h4 className="capitalize text-sm">
                       {project?.category?.replaceAll("_", " ")}
                     </h4>
