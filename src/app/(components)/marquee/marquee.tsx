@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import { slugifier } from "@/lib/utils";
+import Image from "next/image";
 
 const GET_PORTFOLIOS = gql`
   query KcdPortfolios {
@@ -87,7 +88,7 @@ export default function Marquee() {
                   key={index}
                 >
                   <div className="w-full">
-                    <Skeleton className={`aspect-square w-full rounded-lg`} />
+                    <Skeleton className={`aspect-square w-full rounded-xl`} />
                     <Skeleton className="mt-2 w-[80%] h-5" />
                     <Skeleton className="mt-2 w-[50%] h-5" />
                   </div>
@@ -101,22 +102,30 @@ export default function Marquee() {
                   className=" md:ease-in-out md:duration-700 md:hover:-translate-y-8 flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
                   key={index}
                 >
-                  <div>
-                    <img
-                      className={`aspect-square w-full object-cover rounded-xl`}
-                      draggable="false"
-                      src={attributes?.thumbnail?.data?.attributes?.url}
-                      alt={
-                        attributes?.thumbnail?.data?.attributes
-                          ?.alternativeText || "Project thumbnail"
-                      }
-                      {...(attributes?.thumbnail?.data?.attributes?.width && {
-                        width: attributes?.thumbnail?.data?.attributes?.width,
-                      })}
-                      {...(attributes?.thumbnail?.data?.attributes?.height && {
-                        height: attributes?.thumbnail?.data?.attributes?.height,
-                      })}
-                    />
+                  <div className="w-full">
+                    {attributes?.thumbnail?.data?.attributes?.url ? (
+                      <Image
+                        className={`aspect-square w-full object-cover rounded-xl`}
+                        draggable="false"
+                        src={attributes?.thumbnail?.data?.attributes?.url}
+                        alt={
+                          attributes?.thumbnail?.data?.attributes
+                            ?.alternativeText || "Project thumbnail"
+                        }
+                        {...(attributes?.thumbnail?.data?.attributes?.width && {
+                          width: attributes?.thumbnail?.data?.attributes?.width,
+                        })}
+                        {...(attributes?.thumbnail?.data?.attributes
+                          ?.height && {
+                          height:
+                            attributes?.thumbnail?.data?.attributes?.height,
+                        })}
+                      />
+                    ) : (
+                      <div
+                        className={`aspect-square bg-gray-400 w-full rounded-xl`}
+                      />
+                    )}
                     <div className="pl-2 pt-3">
                       <h3 className="text-lg text-black dark:text-white capitalize">
                         {attributes?.title}

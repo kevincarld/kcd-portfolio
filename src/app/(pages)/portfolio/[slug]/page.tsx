@@ -22,6 +22,7 @@ import {
 import { MdHttp } from "react-icons/md";
 import { BsCheck2Circle } from "react-icons/bs";
 import PageAnimate from "@/app/(components)/page-animate/page-animate";
+import Image from "next/image";
 
 const logos = [
   { React: <SiReact /> },
@@ -104,11 +105,19 @@ export default async function SinglePortfolioPage({
       <PageAnimate>
         <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
           <div>
-            <img
-              className="aspect-square object-cover rounded-xl"
-              src={project?.thumbnail?.data?.attributes?.url}
-              alt="Image Description"
-            />
+            {project?.thumbnail?.data?.attributes?.url && (
+              <Image
+                className="aspect-square object-cover rounded-xl"
+                src={project?.thumbnail?.data?.attributes?.url}
+                alt="Image Description"
+                {...(project?.thumbnail?.data?.attributes?.width && {
+                  width: project?.thumbnail?.data?.attributes?.width,
+                })}
+                {...(project?.thumbnail?.data?.attributes?.height && {
+                  height: project?.thumbnail?.data?.attributes?.height,
+                })}
+              />
+            )}
           </div>
 
           <div className="mt-5 sm:mt-10 lg:mt-0">
