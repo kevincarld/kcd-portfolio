@@ -10,6 +10,7 @@ import {
 } from "@/lib/strapi/types";
 import { useState } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { slugifier } from "@/lib/utils";
 
 const GET_PORTFOLIOS = gql`
   query KcdPortfolios {
@@ -25,6 +26,19 @@ const GET_PORTFOLIOS = gql`
           title
           stack
           category
+          thumbnail {
+            data {
+              attributes {
+                name
+                alternativeText
+                caption
+                width
+                height
+                url
+                previewUrl
+              }
+            }
+          }
         }
       }
     }
@@ -85,7 +99,8 @@ export default function Marquee() {
               const imgRatio =
                 index % 2 !== 0 ? "aspect-square" : "aspect-[6/9]";
               return (
-                <div
+                <Link
+                  href={`/portfolio/${slugifier(attributes?.title)}`}
                   className="flex items-center flex-shrink-0 basis-[50vw] lg:basis-[40vw] d:basis-[30vw] wide:basis-[25vw]"
                   key={index}
                 >
@@ -93,8 +108,17 @@ export default function Marquee() {
                     <img
                       className={`${imgRatio} w-full object-cover rounded-xl`}
                       draggable="false"
-                      src={"https://placehold.co/600x400/c00c00/fff"}
-                      alt={attributes?.title}
+                      src={attributes?.thumbnail?.data?.attributes?.url}
+                      alt={
+                        attributes?.thumbnail?.data?.attributes
+                          ?.alternativeText || "Project thumbnail"
+                      }
+                      {...(attributes?.thumbnail?.data?.attributes?.width && {
+                        width: attributes?.thumbnail?.data?.attributes?.width,
+                      })}
+                      {...(attributes?.thumbnail?.data?.attributes?.height && {
+                        height: attributes?.thumbnail?.data?.attributes?.height,
+                      })}
                     />
                     <h3 className="capitalize">{attributes?.title}</h3>
                     <p>{attributes?.category.replaceAll("_", " ")}</p>
@@ -102,7 +126,7 @@ export default function Marquee() {
                       {attributes?.stack?.join(", ")}
                     </p>
                   </div>
-                </div>
+                </Link>
               );
             })}
       </motion.div>

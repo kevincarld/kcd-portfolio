@@ -18,10 +18,19 @@ const GET_PROJECTS = gql`
           title
           stack
           category
-          featured
-          createdAt
-          updatedAt
-          publishedAt
+          thumbnail {
+            data {
+              attributes {
+                name
+                alternativeText
+                caption
+                width
+                height
+                url
+                previewUrl
+              }
+            }
+          }
         }
       }
       meta {
@@ -105,8 +114,14 @@ export default function ProjectList() {
                   <figure>
                     <img
                       className="aspect-video rounded-2xl w-full object-cover [clip-path:inset(3%_3%_3%_3%_round_1rem)] hover:[clip-path:inset(1%_1%_1%_1%_round_1rem)] transition-all duration-1000 ease-in-out"
-                      src={"https://placehold.co/600x400/c00c00/fff"}
-                      alt={project?.title}
+                      src={project?.thumbnail?.data?.attributes?.url}
+                      {...(project?.thumbnail?.data?.attributes?.width && {
+                        width: project?.thumbnail?.data?.attributes?.width,
+                      })}
+                      {...(project?.thumbnail?.data?.attributes?.height && {
+                        height: project?.thumbnail?.data?.attributes?.height,
+                      })}
+                      alt={`${project?.title} thumbnail`}
                     />
                   </figure>
                 </Link>
