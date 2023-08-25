@@ -23,6 +23,7 @@ import { MdHttp } from "react-icons/md";
 import { BsCheck2Circle } from "react-icons/bs";
 import PageAnimate from "@/app/(components)/page-animate/page-animate";
 import Image from "next/image";
+import Pagination from "@/app/(components)/project-list/pagination/pagination";
 
 const logos = [
   { React: <SiReact /> },
@@ -81,6 +82,7 @@ export default async function SinglePortfolioPage({
             introduction
             link
             stack
+            rank
           }
         }
       }
@@ -103,6 +105,13 @@ export default async function SinglePortfolioPage({
   return (
     <section className="container-sm py-10 md:py-14 min-h-[70vh]">
       <PageAnimate>
+        {project?.rank && (
+          <Pagination
+            containerClass="hidden md:flex justify-end space-x-3 mb-16"
+            rank={project?.rank}
+          />
+        )}
+
         <div className="md:grid md:grid-cols-2 md:items-start md:gap-12 xl:gap-32">
           <div>
             {project?.thumbnail?.data?.attributes?.url && (
@@ -180,6 +189,13 @@ export default async function SinglePortfolioPage({
             );
           })}
         </div>
+
+        {project?.rank && (
+          <Pagination
+            containerClass="flex justify-center md:hidden space-x-3 mt-14"
+            rank={project?.rank}
+          />
+        )}
       </PageAnimate>
     </section>
   );
