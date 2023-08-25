@@ -171,7 +171,7 @@ export default async function SinglePortfolioPage({
         <h2 className="text-xl mt-10 text-black dark:text-white">
           Technologies used:
         </h2>
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-5 lg:grid-cols-6">
           {project?.stack?.map((tech: string, index: number) => {
             //@ts-ignore
             const logo = logos.find((logo) => logo[tech]);
@@ -179,7 +179,7 @@ export default async function SinglePortfolioPage({
             return (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"
+                className="flex flex-col items-center justify-center col-span-1 lg:col-span-1"
               >
                 <span className="text-6xl text-black dark:text-white">
                   {logo && Object.values(logo)[0]}
