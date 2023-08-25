@@ -144,9 +144,9 @@ export default function Marquee() {
       </motion.div>
 
       <div className="container-sm mt-6 md:mt-14">
-        <Button className="flex" variant="default">
-          <Link href="/portfolio">See all selected works</Link>
-        </Button>
+        <Link href="/portfolio">
+          <Button variant="default">See all selected works</Button>
+        </Link>
       </div>
     </section>
   );

@@ -12,7 +12,8 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
   title: "Kevin Carl David | Fullstack Developer",
-  description: "tbd",
+  description:
+    "Hello there! I'm a coder on a mission to create exceptional digital experiences. With a strong foundation in WordPress customization, I've evolved into a frontend specialist, harnessing React, Next.js, and more to bring websites to life.",
 };
 
 export default function RootLayout({
