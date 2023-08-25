@@ -41,6 +41,8 @@ const logos = [
   { "Chakra UI": <SiChakraui /> },
   { MUI: <SiMui /> },
 ];
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
   if (!strapiUrl) throw new Error("No Strapi URL defined in environment.");
@@ -103,7 +105,7 @@ export default async function SinglePortfolioPage({
   const project = data.kcdPortfolios.data[0]?.attributes;
 
   return (
-    <section className="container-sm py-10 md:py-14 min-h-[70vh]">
+    <section className="container-sm py-10 md:py-14 md:pb-20 min-h-[70vh]">
       <PageAnimate>
         <Pagination
           containerClass="hidden md:flex justify-end space-x-3 mb-16"
