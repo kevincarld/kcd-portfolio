@@ -36,6 +36,7 @@
     "framer-motion": "^10.16.0",
     "graphql": "^16.8.0",
     "html-react-parser": "^4.2.1",
+    "isomorphic-dompurify": "^1.8.0",
     "jotai": "^2.3.1",
     "lucide-react": "^0.268.0",
     "marked": "^7.0.4",

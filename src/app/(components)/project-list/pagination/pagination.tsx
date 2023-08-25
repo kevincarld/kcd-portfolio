@@ -13,9 +13,10 @@ export default function Pagination({
   rank,
   containerClass,
 }: {
-  rank: number;
+  rank: number | null;
   containerClass?: string;
 }) {
+  if (typeof rank !== "number") return null;
   const GET_PREV_NEXT = gql`
     query ($filters: KcdPortfolioFiltersInput) {
       kcdPortfolios(filters: $filters, pagination: { limit: 2 }) {

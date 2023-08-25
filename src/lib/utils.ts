@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { sanitize as serverSanitize } from "isomorphic-dompurify";
 import { sanitize } from "dompurify";
 
 import { parse } from "marked";
@@ -12,7 +13,14 @@ export function cn(...inputs: ClassValue[]) {
 
 export function parseMarkdown(md: string | undefined | null) {
   if (!md) return "";
-  return htmlParser(sanitize(parse(md), { USE_PROFILES: { html: true } }));
+  let sanitized = null;
+
+  if (typeof window === "undefined") {
+    sanitized = serverSanitize(parse(md));
+  } else {
+    sanitized = sanitize(parse(md), { USE_PROFILES: { html: true } });
+  }
+  return htmlParser(sanitized);
 }
 
 export function slugifier(str: string | undefined | null) {

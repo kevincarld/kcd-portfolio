@@ -105,12 +105,10 @@ export default async function SinglePortfolioPage({
   return (
     <section className="container-sm py-10 md:py-14 min-h-[70vh]">
       <PageAnimate>
-        {project?.rank && (
-          <Pagination
-            containerClass="hidden md:flex justify-end space-x-3 mb-16"
-            rank={project?.rank}
-          />
-        )}
+        <Pagination
+          containerClass="hidden md:flex justify-end space-x-3 mb-16"
+          rank={typeof project?.rank === "number" ? project?.rank : null}
+        />
 
         <div className="md:grid md:grid-cols-2 md:items-start md:gap-12 xl:gap-32">
           <div>
@@ -190,12 +188,10 @@ export default async function SinglePortfolioPage({
           })}
         </div>
 
-        {project?.rank && (
-          <Pagination
-            containerClass="flex justify-center md:hidden space-x-3 mt-14"
-            rank={project?.rank}
-          />
-        )}
+        <Pagination
+          containerClass="flex justify-center md:hidden space-x-3 mt-14"
+          rank={typeof project?.rank === "number" ? project?.rank : null}
+        />
       </PageAnimate>
     </section>
   );
