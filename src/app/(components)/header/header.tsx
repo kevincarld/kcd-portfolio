@@ -66,10 +66,12 @@ export default async function Header() {
       className="container-sm flex justify-between pt-6 md:pt-10"
     >
       <div className="flex space-x-2 md:space-x-5">
-        <Link href="/">
+        <Link href="/" aria-label="Link to homepage">
           <Avatar>
-            <AvatarImage src={headerLogo ? `${headerLogo.url}` : ""} />
-            <AvatarImage src="" />
+            <AvatarImage
+              alt="Main logo"
+              src={headerLogo ? `${headerLogo.url}` : ""}
+            />
             <AvatarFallback>KD</AvatarFallback>
           </Avatar>
         </Link>
