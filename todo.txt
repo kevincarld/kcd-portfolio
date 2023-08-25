@@ -1,0 +1,4 @@
+add prev/next in single project
+change my timeline to about me
+add my stack in about me
+add budget genie and thd to portfolio

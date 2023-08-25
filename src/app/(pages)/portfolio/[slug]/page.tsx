@@ -103,7 +103,7 @@ export default async function SinglePortfolioPage({
   return (
     <section className="container-sm py-10 md:py-14 min-h-[70vh]">
       <PageAnimate>
-        <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+        <div className="md:grid md:grid-cols-2 md:items-start md:gap-12 xl:gap-32">
           <div>
             {project?.thumbnail?.data?.attributes?.url && (
               <Image
@@ -117,6 +117,17 @@ export default async function SinglePortfolioPage({
                   height: project?.thumbnail?.data?.attributes?.height,
                 })}
               />
+            )}
+
+            {project?.link && (
+              <a
+                href={project?.link}
+                target="_blank"
+                referrerPolicy="no-referrer"
+                className="block mt-6"
+              >
+                <Button variant="default">View project online</Button>
+              </a>
             )}
           </div>
 
@@ -142,17 +153,6 @@ export default async function SinglePortfolioPage({
                       )
                     )}
                   </ul>
-
-                  {project?.link && (
-                    <a
-                      href={project?.link}
-                      target="_blank"
-                      referrerPolicy="no-referrer"
-                      className="block mt-6"
-                    >
-                      <Button variant="default">View project online</Button>
-                    </a>
-                  )}
                 </div>
               </div>
             </div>
