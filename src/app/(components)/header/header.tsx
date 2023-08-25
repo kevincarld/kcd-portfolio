@@ -77,10 +77,10 @@ export default async function Header() {
         </Link>
 
         <nav>
-          <ul>
+          <ul className="flex flex-col space-y-1">
             <li>
               <Link
-                className="text-sm md:text-base dark:text-gray-300"
+                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
                 href="/"
               >
                 Home
@@ -88,7 +88,7 @@ export default async function Header() {
             </li>
             <li>
               <Link
-                className="text-sm md:text-base dark:text-gray-300"
+                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
                 href="/my-timeline"
               >
                 My timeline
@@ -96,7 +96,7 @@ export default async function Header() {
             </li>
             <li>
               <Link
-                className="text-sm md:text-base dark:text-gray-300"
+                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
                 href="/portfolio"
               >
                 Portfolio

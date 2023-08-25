@@ -120,6 +120,9 @@ export default function Marquee() {
                           height:
                             attributes?.thumbnail?.data?.attributes?.height,
                         })}
+                        {...(index < 4 && {
+                          priority: true,
+                        })}
                       />
                     ) : (
                       <div
