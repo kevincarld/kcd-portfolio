@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "kcd-portfolio-frontent",
+  "version": "1.0.0",
   "private": true,
   "author": "Kevin Carl David",
   "scripts": {
