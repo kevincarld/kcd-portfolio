@@ -19,7 +19,11 @@ export default function Pagination({
   if (typeof rank !== "number") return null;
   const GET_PREV_NEXT = gql`
     query ($filters: KcdPortfolioFiltersInput) {
-      kcdPortfolios(filters: $filters, pagination: { limit: 2 }) {
+      kcdPortfolios(
+        sort: "rank:asc"
+        filters: $filters
+        pagination: { limit: 2 }
+      ) {
         data {
           attributes {
             slug
@@ -69,8 +73,9 @@ export default function Pagination({
           {projects?.map((proj) => {
             const currentRank = proj?.attributes?.rank;
             const slug = proj?.attributes?.slug;
+            if (typeof currentRank !== "number") return null;
 
-            if (!currentRank || !slug) return null;
+            if (!slug) return null;
 
             if (currentRank < rank) {
               return (
