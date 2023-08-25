@@ -13,8 +13,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // if in main root, redirect to hub login
-  if (host && !host.startsWith(".")) {
+  // Check if the host starts with any string followed by a dot
+  const subdomainPattern = /^[^.]+\./;
+  if (host && !subdomainPattern.test(host || "")) {
     return NextResponse.redirect("https://hub.kevolution.app/admin");
   }
 
