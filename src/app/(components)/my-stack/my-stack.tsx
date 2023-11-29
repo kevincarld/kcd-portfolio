@@ -61,7 +61,7 @@ export default function MyStack() {
         })}
       </div>
 
-      <h2 className="text-xl mt-6 text-black dark:text-white">
+      <h2 className="md:text-lg text-xl mt-6 text-black dark:text-white">
         Backend stack:
       </h2>
       <div className="mt-10 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-8">

@@ -15,29 +15,29 @@ import Image from "next/image";
 
 const GET_PORTFOLIOS = gql`
   query KcdPortfolios {
-    kcdPortfolios(
-      filters: { featured: { eq: true } }
-      pagination: { limit: 8 }
-      sort: "rank:asc"
-    ) {
-      __typename
+    kcdPortfolioSetting {
       data {
-        __typename
         attributes {
-          __typename
-          title
-          stack
-          category
-          thumbnail {
+          kcd_portfolio_feats {
             data {
               attributes {
-                name
-                alternativeText
-                caption
-                width
-                height
-                url
-                previewUrl
+                __typename
+                title
+                stack
+                category
+                thumbnail {
+                  data {
+                    attributes {
+                      name
+                      alternativeText
+                      caption
+                      width
+                      height
+                      url
+                      previewUrl
+                    }
+                  }
+                }
               }
             }
           }
@@ -53,18 +53,20 @@ export default function Marquee() {
     query: "(min-width: 1280px)",
   });
 
-  const { loading, error, data } = useQuery<{
-    kcdPortfolios: KcdPortfolioEntityResponseCollection;
-  }>(GET_PORTFOLIOS, {
+  const { loading, error, data } = useQuery(GET_PORTFOLIOS, {
     onCompleted: (data) => {
-      setPortfolios(data.kcdPortfolios.data);
+      setPortfolios(
+        data?.kcdPortfolioSetting?.data?.attributes?.kcd_portfolio_feats?.data
+      );
     },
   });
 
   return (
     <section className="py-10 overflow-hidden md:py-16">
       <div className="container-sm mb-6 md:mb-14">
-        <h2 className="text-lg text-black dark:text-white">Selected works</h2>
+        <h2 className="text-lg text-black dark:text-white">
+          <Link href="/portfolio">Selected works</Link>
+        </h2>
       </div>
 
       <motion.div
