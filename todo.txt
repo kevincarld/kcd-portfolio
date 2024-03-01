@@ -1,3 +1,0 @@
-add prev/next in single project
-add my stack in about me
-add budget genie and thd to portfolio
