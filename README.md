@@ -1,15 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### My rushed portfolio site just to get something out there haha  😬
 
-## Getting Started
+- This project is live at [https://me.kevolution.app](https://me.kevolution.app/)
+- Paired with [Strapi CMS v4](https://docs.strapi.io/) for content
+- Project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+- [WIP] to be moved to my new Golang template coz React is yuck 🤢
 
-First, run the development server:
+### Running local
+- Needs link to Strapi
+- Create .env file (refer to .env.example)
+- Option: can set it to my public Strapi API https://hub.kevolution.app
+
 
 ```bash
-npm run dev
-# or
+# install deps
+yarn
+
+# run dev
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Served at [http://localhost:3000](http://localhost:3000)
