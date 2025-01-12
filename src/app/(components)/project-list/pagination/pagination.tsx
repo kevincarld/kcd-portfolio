@@ -70,7 +70,7 @@ export default function Pagination({
         </>
       ) : data ? (
         <>
-          {projects?.map((proj) => {
+          {projects?.map((proj, index) => {
             const currentRank = proj?.attributes?.rank;
             const slug = proj?.attributes?.slug;
             if (typeof currentRank !== "number") return null;
@@ -79,7 +79,7 @@ export default function Pagination({
 
             if (currentRank < rank) {
               return (
-                <Link href={`/portfolio/${slug}`}>
+                <Link href={`/portfolio/${slug}`} key={index}>
                   <Button variant="outline">Previous</Button>
                 </Link>
               );
@@ -87,7 +87,7 @@ export default function Pagination({
 
             if (currentRank > rank) {
               return (
-                <Link href={`/portfolio/${slug}`}>
+                <Link href={`/portfolio/${slug}`} key={index}>
                   <Button variant="default">Next</Button>
                 </Link>
               );

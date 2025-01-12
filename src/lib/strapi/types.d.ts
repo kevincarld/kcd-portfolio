@@ -265,6 +265,7 @@ export type JsonFilterInput = {
 
 export type KcdPortfolio = {
   __typename?: 'KcdPortfolio';
+  backupLink?: Maybe<Scalars['String']['output']>;
   category: Enum_Kcdportfolio_Category;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   featured?: Maybe<Scalars['Boolean']['output']>;
@@ -299,6 +300,7 @@ export type KcdPortfolioEntityResponseCollection = {
 
 export type KcdPortfolioFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
+  backupLink?: InputMaybe<StringFilterInput>;
   category?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   featured?: InputMaybe<BooleanFilterInput>;
@@ -317,6 +319,7 @@ export type KcdPortfolioFiltersInput = {
 };
 
 export type KcdPortfolioInput = {
+  backupLink?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Enum_Kcdportfolio_Category>;
   featured?: InputMaybe<Scalars['Boolean']['input']>;
   introduction?: InputMaybe<Scalars['String']['input']>;
@@ -330,13 +333,27 @@ export type KcdPortfolioInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type KcdPortfolioRelationResponseCollection = {
+  __typename?: 'KcdPortfolioRelationResponseCollection';
+  data: Array<KcdPortfolioEntity>;
+};
+
 export type KcdPortfolioSetting = {
   __typename?: 'KcdPortfolioSetting';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   homepage: Array<Maybe<KcdPortfolioSettingHomepageDynamicZone>>;
+  kcd_portfolio_feats?: Maybe<KcdPortfolioRelationResponseCollection>;
   timelineItems: Array<Maybe<KcdPortfolioSettingTimelineItemsDynamicZone>>;
   timelinePage: Array<Maybe<KcdPortfolioSettingTimelinePageDynamicZone>>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type KcdPortfolioSettingKcd_Portfolio_FeatsArgs = {
+  filters?: InputMaybe<KcdPortfolioFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type KcdPortfolioSettingEntity = {
@@ -354,6 +371,7 @@ export type KcdPortfolioSettingHomepageDynamicZone = ComponentKcdHome | Error;
 
 export type KcdPortfolioSettingInput = {
   homepage?: InputMaybe<Array<Scalars['KcdPortfolioSettingHomepageDynamicZoneInput']['input']>>;
+  kcd_portfolio_feats?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   timelineItems?: InputMaybe<Array<Scalars['KcdPortfolioSettingTimelineItemsDynamicZoneInput']['input']>>;
   timelinePage?: InputMaybe<Array<Scalars['KcdPortfolioSettingTimelinePageDynamicZoneInput']['input']>>;
 };
