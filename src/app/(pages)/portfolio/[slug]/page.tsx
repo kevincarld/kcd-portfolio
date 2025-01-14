@@ -24,6 +24,7 @@ import { BsCheck2Circle } from "react-icons/bs";
 import PageAnimate from "@/app/(components)/page-animate/page-animate";
 import Image from "next/image";
 import Pagination from "@/app/(components)/project-list/pagination/pagination";
+import Snaps from "@/app/(components)/snaps/snaps";
 
 const logos = [
   { React: <SiReact /> },
@@ -85,6 +86,17 @@ export default async function SinglePortfolioPage({
             link
             stack
             rank
+            screenshots {
+              data {
+                attributes {
+                  width
+                  url
+                  name
+                  height
+                  alternativeText
+                }
+              }
+            }
           }
         }
       }
@@ -122,7 +134,7 @@ export default async function SinglePortfolioPage({
               <Image
                 className="object-cover aspect-square rounded-xl"
                 src={project?.thumbnail?.data?.attributes?.url}
-                alt="Image Description"
+                alt={project?.thumbnail?.data?.attributes?.alternativeText || project?.thumbnail?.data?.attributes?.name || "Project thumbnail"} 
                 {...(project?.thumbnail?.data?.attributes?.width && {
                   width: project?.thumbnail?.data?.attributes?.width,
                 })}
@@ -171,6 +183,16 @@ export default async function SinglePortfolioPage({
             </div>
           </div>
         </div>
+
+        {Boolean(project?.screenshots?.data?.length) && (
+          <>
+            <h2 className="mt-10 text-xl text-black dark:text-white">
+              Screenshots:
+            </h2>
+            
+            <Snaps screenshots={project?.screenshots?.data || null}/>
+          </>
+        )}
 
         <h2 className="mt-10 text-xl text-black dark:text-white">
           Technologies used:

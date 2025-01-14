@@ -274,11 +274,19 @@ export type KcdPortfolio = {
   link?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   rank?: Maybe<Scalars['Int']['output']>;
+  screenshots?: Maybe<UploadFileRelationResponseCollection>;
   slug: Scalars['String']['output'];
   stack?: Maybe<Scalars['JSON']['output']>;
   thumbnail?: Maybe<UploadFileEntityResponse>;
   title: Scalars['String']['output'];
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type KcdPortfolioScreenshotsArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type KcdPortfolioEntity = {
@@ -327,6 +335,7 @@ export type KcdPortfolioInput = {
   link?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   rank?: InputMaybe<Scalars['Int']['input']>;
+  screenshots?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   slug?: InputMaybe<Scalars['String']['input']>;
   stack?: InputMaybe<Scalars['JSON']['input']>;
   thumbnail?: InputMaybe<Scalars['ID']['input']>;
