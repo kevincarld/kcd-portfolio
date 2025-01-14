@@ -114,9 +114,13 @@ export default async function SinglePortfolioPage({
 
         <div className="md:grid md:grid-cols-2 md:items-start md:gap-12 xl:gap-32">
           <div>
+            <h1 className="mb-3 text-3xl font-medium text-black sm:mb-4 md:hidden dark:text-white">
+              {project?.title}
+            </h1>
+
             {project?.thumbnail?.data?.attributes?.url && (
               <Image
-                className="aspect-square object-cover rounded-xl"
+                className="object-cover aspect-square rounded-xl"
                 src={project?.thumbnail?.data?.attributes?.url}
                 alt="Image Description"
                 {...(project?.thumbnail?.data?.attributes?.width && {
@@ -140,20 +144,20 @@ export default async function SinglePortfolioPage({
             )}
           </div>
 
-          <div className="mt-5 sm:mt-10 lg:mt-0">
+          <div className="mt-5 sm:mt-10 md:mt-0">
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-2 md:space-y-4">
-                <h1 className="font-medium text-3xl lg:text-4xl text-black dark:text-white">
+                <h1 className="hidden text-3xl font-medium text-black md:block lg:text-4xl dark:text-white">
                   {project?.title}
                 </h1>
-                <p>{project?.introduction}</p>
+                <p className="pb-3">{project?.introduction}</p>
 
                 <div>
                   <ul role="list" className="space-y-2 sm:space-y-4">
                     {project?.jobsDone?.tasks?.map(
                       (string: string, index: number) => (
                         <li key={index} className="flex space-x-3">
-                          <span className="flex text-sm mt-1 ">
+                          <span className="flex mt-1 text-sm ">
                             <BsCheck2Circle />
                           </span>
 
@@ -168,10 +172,10 @@ export default async function SinglePortfolioPage({
           </div>
         </div>
 
-        <h2 className="text-xl mt-10 text-black dark:text-white">
+        <h2 className="mt-10 text-xl text-black dark:text-white">
           Technologies used:
         </h2>
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-5 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 mt-10 md:grid-cols-5 lg:grid-cols-6">
           {project?.stack?.map((tech: string, index: number) => {
             //@ts-ignore
             const logo = logos.find((logo) => logo[tech]);
