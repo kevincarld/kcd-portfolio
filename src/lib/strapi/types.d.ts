@@ -271,6 +271,7 @@ export type KcdPortfolio = {
   featured?: Maybe<Scalars['Boolean']['output']>;
   introduction?: Maybe<Scalars['String']['output']>;
   jobsDone?: Maybe<Scalars['JSON']['output']>;
+  laymanJobsDone?: Maybe<Scalars['JSON']['output']>;
   link?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   rank?: Maybe<Scalars['Int']['output']>;
@@ -315,6 +316,7 @@ export type KcdPortfolioFiltersInput = {
   id?: InputMaybe<IdFilterInput>;
   introduction?: InputMaybe<StringFilterInput>;
   jobsDone?: InputMaybe<JsonFilterInput>;
+  laymanJobsDone?: InputMaybe<JsonFilterInput>;
   link?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<KcdPortfolioFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<KcdPortfolioFiltersInput>>>;
@@ -332,6 +334,7 @@ export type KcdPortfolioInput = {
   featured?: InputMaybe<Scalars['Boolean']['input']>;
   introduction?: InputMaybe<Scalars['String']['input']>;
   jobsDone?: InputMaybe<Scalars['JSON']['input']>;
+  laymanJobsDone?: InputMaybe<Scalars['JSON']['input']>;
   link?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   rank?: InputMaybe<Scalars['Int']['input']>;

@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 
 type Theme = "light" | "dark";
+type ViewAs = "techy" | "layman";
 
 const themeAtom = atom<Theme>("light");
 const toggleThemeAtom = atom(null, (get, set) => {
@@ -11,4 +12,13 @@ const toggleThemeAtom = atom(null, (get, set) => {
   }
 });
 
-export { themeAtom, toggleThemeAtom };
+const viewAsAtom = atom<ViewAs>("techy");
+const updateViewAsAtom = atom(null, (get, set, val: ViewAs) => {
+  set(viewAsAtom, val);
+  if (localStorage) {
+    localStorage.setItem("kcd-viewas", val);
+  }
+});
+
+
+export { themeAtom, toggleThemeAtom, viewAsAtom, updateViewAsAtom };

@@ -20,11 +20,11 @@ import {
   SiMui,
 } from "react-icons/si";
 import { MdHttp } from "react-icons/md";
-import { BsCheck2Circle } from "react-icons/bs";
 import PageAnimate from "@/app/(components)/page-animate/page-animate";
 import Image from "next/image";
 import Pagination from "@/app/(components)/project-list/pagination/pagination";
 import Snaps from "@/app/(components)/snaps/snaps";
+import JobsDone from "@/app/(components)/jobs-done/jobs-done";
 
 const logos = [
   { React: <SiReact /> },
@@ -82,6 +82,7 @@ export default async function SinglePortfolioPage({
               }
             }
             jobsDone
+            laymanJobsDone
             introduction
             link
             stack
@@ -164,21 +165,7 @@ export default async function SinglePortfolioPage({
                 </h1>
                 <p className="pb-3">{project?.introduction}</p>
 
-                <div>
-                  <ul role="list" className="space-y-2 sm:space-y-4">
-                    {project?.jobsDone?.tasks?.map(
-                      (string: string, index: number) => (
-                        <li key={index} className="flex space-x-3">
-                          <span className="flex mt-1 text-sm ">
-                            <BsCheck2Circle />
-                          </span>
-
-                          <span className="text-sm sm:text-base">{string}</span>
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
+                <JobsDone jobsDone={project?.jobsDone || {tasks: []}} laymanJobsDone={project?.laymanJobsDone || {tasks: []}}/>
               </div>
             </div>
           </div>
