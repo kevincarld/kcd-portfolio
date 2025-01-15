@@ -47,8 +47,8 @@ export default function JobsDone({jobsDone, laymanJobsDone}: Props){
 
       <Tabs value={viewAs} className="pt-4" onValueChange={value => setViewAs(value as "techy" | "layman")}>
         <TabsList>
-          <TabsTrigger value="techy">View as Techy</TabsTrigger>
-          <TabsTrigger value="layman">View as Layman</TabsTrigger>
+          <TabsTrigger value="techy">View as techy</TabsTrigger>
+          <TabsTrigger value="layman">View as layman</TabsTrigger>
         </TabsList>
       </Tabs>
     </>
