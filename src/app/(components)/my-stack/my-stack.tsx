@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   SiReact,
   SiNextdotjs,
@@ -14,6 +15,7 @@ import {
   SiMui,
   SiPhp,
 } from "react-icons/si";
+import { Button } from "../ui/button";
 
 export default function MyStack() {
   const logos = {
@@ -23,13 +25,13 @@ export default function MyStack() {
       { Javascript: <SiJavascript /> },
       { Typescript: <SiTypescript /> },
 
+      // { Apollo: <SiApollographql /> },
+      { Graphql: <SiGraphql /> },
       { "Tailwind CSS": <SiTailwindcss /> },
       { "Chakra UI": <SiChakraui /> },
       { MUI: <SiMui /> },
     ],
     backend: [
-      { Apollo: <SiApollographql /> },
-      { Graphql: <SiGraphql /> },
       { "Node JS": <SiNodedotjs /> },
       { PHP: <SiPhp /> },
       { WordPress: <SiWordpress /> },
@@ -40,10 +42,10 @@ export default function MyStack() {
 
   return (
     <section className="container">
-      <h2 className="text-xl mt-10 text-black dark:text-white">
+      <h2 className="mt-10 text-xl text-black dark:text-white">
         Frontend stack:
       </h2>
-      <div className="mt-10 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-8">
+      <div className="grid grid-cols-3 gap-6 mt-10 md:grid-cols-5 lg:grid-cols-8">
         {logos.frontend.map((logoObj, index: number) => {
           const [tech, icon] = Object.entries(logoObj)[0];
 
@@ -61,10 +63,10 @@ export default function MyStack() {
         })}
       </div>
 
-      <h2 className="md:text-lg text-xl mt-6 text-black dark:text-white">
-        Backend stack:
+      <h2 className="mt-6 text-xl text-black md:text-lg dark:text-white">
+        Backend/CMS stack:
       </h2>
-      <div className="mt-10 grid grid-cols-3 gap-6 md:grid-cols-5 lg:grid-cols-8">
+      <div className="grid grid-cols-3 gap-6 mt-10 md:grid-cols-5 lg:grid-cols-8">
         {logos.backend.map((logoObj, index: number) => {
           const [tech, icon] = Object.entries(logoObj)[0];
 
@@ -80,6 +82,12 @@ export default function MyStack() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mt-10">
+        <Link href="/portfolio">
+          <Button variant={"default"}>View my projects</Button>
+        </Link>
       </div>
     </section>
   );

@@ -63,7 +63,7 @@ export default async function Header() {
   return (
     <header
       id="top"
-      className="container-sm flex justify-between pt-6 md:pt-10"
+      className="flex justify-between pt-6 container-sm md:pt-10"
     >
       <div className="flex space-x-2 md:space-x-5">
         <Link href="/" aria-label="Link to homepage">
@@ -80,7 +80,7 @@ export default async function Header() {
           <ul className="flex flex-col space-y-1">
             <li>
               <Link
-                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
+                className="text-sm transition-colors hover:text-black dark:hover:text-white md:text-base dark:text-gray-300"
                 href="/"
               >
                 Home
@@ -88,15 +88,15 @@ export default async function Header() {
             </li>
             <li>
               <Link
-                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
-                href="/my-timeline"
+                className="text-sm transition-colors hover:text-black dark:hover:text-white md:text-base dark:text-gray-300"
+                href="/my-profile"
               >
-                My timeline
+                My profile
               </Link>
             </li>
             <li>
               <Link
-                className="hover:text-black dark:hover:text-white transition-colors text-sm md:text-base dark:text-gray-300"
+                className="text-sm transition-colors hover:text-black dark:hover:text-white md:text-base dark:text-gray-300"
                 href="/portfolio"
               >
                 Portfolio

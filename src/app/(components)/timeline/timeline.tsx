@@ -39,8 +39,8 @@ export default async function Timeline() {
     console.error(error);
   }
   return (
-    <section className="container py-10 md:py-16">
-      <ol className="ml-3 lg:ml-0 relative border-l border-gray-200 dark:border-gray-700">
+    <section className="max-w-[90%] lg:max-w-[860px] mx-auto py-10 my-10 md:my-14 border-t-[1px] border-gray-300 dark:border-gray-600 md:py-16">
+      <ol className="relative ml-3 border-l border-gray-200 lg:ml-0 dark:border-gray-700">
         {timelineItems &&
           timelineItems.map((item: ComponentKcdTimelineItem, index: number) => (
             <li key={index} className="mb-16 ml-8">
@@ -55,14 +55,14 @@ export default async function Timeline() {
                 {item.title}
               </h3>
               {item?.place && (
-                <p className="text-base mb-1  text-gray-500 dark:text-gray-300">
+                <p className="mb-1 text-base text-gray-500 dark:text-gray-300">
                   {item.place}
                 </p>
               )}
-              <time className="block mb-2 text-sm  leading-none text-gray-400 dark:text-gray-300">
+              <time className="block mb-2 text-sm leading-none text-gray-400 dark:text-gray-300">
                 {item.date}
               </time>
-              <p className="text-base  text-gray-500 dark:text-gray-400">
+              <p className="text-base text-gray-500 dark:text-gray-400">
                 {item.description}
               </p>
             </li>

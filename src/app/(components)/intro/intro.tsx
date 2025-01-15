@@ -53,23 +53,23 @@ export default async function Intro() {
   }
 
   return (
-    <section className="container-sm py-10 md:py-14 md:flex md:justify-between">
+    <section className="py-10 container-sm md:py-14 md:flex md:justify-between">
       {homeSettings && (
         <>
           <div className="md:flex md:flex-col">
-            <h1 className="capitalize text-black dark:text-white font-semibold text-3xl lg:text-4xl">
+            <h1 className="text-3xl font-semibold text-black capitalize dark:text-white lg:text-4xl">
               {homeSettings.title}
             </h1>
             <p className="text-sm lg:text-base">{homeSettings.subtitle}</p>
 
-            <div className="hidden md:flex flex-1 items-end">
-              <div className="flex flex-1 items-center">
+            <div className="items-end flex-1 hidden md:flex">
+              <div className="flex items-center flex-1">
                 <Cta email={homeSettings.email} />
               </div>
             </div>
           </div>
 
-          <p className="py-8 max-w-sm md:py-0">{homeSettings.introParagraph}</p>
+          <p className="max-w-sm py-8 md:py-0">{homeSettings.introParagraph}</p>
 
           <div className="flex items-center md:hidden">
             <Cta email={homeSettings.email} />
@@ -85,11 +85,11 @@ type CtaProps = {
 };
 const Cta = ({ email }: CtaProps) => (
   <>
-    <Link href="/my-timeline">
-      <Button variant={"default"}>My timeline</Button>
+    <Link href="/my-profile">
+      <Button variant={"default"}>My Profile</Button>
     </Link>
 
-    <span className="bg-gray-300 h-6 w-px ml-6" />
+    <span className="w-px h-6 ml-6 bg-gray-300" />
 
     <a href={`mailto:${email}`}>
       <Button variant="ghost">Email me</Button>

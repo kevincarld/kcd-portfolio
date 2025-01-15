@@ -1,5 +1,6 @@
 import { FiExternalLink, FiMail, FiDownload } from "react-icons/fi";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           <ul className="flex flex-col space-y-2">
             <li>
               <a
-                className="text-sm flex items-center"
+                className="flex items-center text-sm"
                 href="https://docs.google.com/document/d/0BwGDG1n0D3WyMEpxby1iSkVkNVdTTmttbjFScjM2RGJVYVRV/edit?usp=sharing&ouid=112781189008170868665&resourcekey=0-gC9DzepejxMXGifjb5mWAw&rtpof=true&sd=true"
                 target="_blank"
               >
@@ -19,7 +20,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                className="text-sm flex items-center"
+                className="flex items-center text-sm"
                 href="mailto:kevincarld@gmail.com"
               >
                 <FiMail className="inline-block mr-2 " />
@@ -28,7 +29,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                className="text-sm flex items-center"
+                className="flex items-center text-sm"
                 href="https://www.linkedin.com/in/kevincarldavid/"
                 target="_blank"
               >
@@ -38,7 +39,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                className="text-sm flex items-center"
+                className="flex items-center text-sm"
                 href="https://github.com/kevincarld"
                 target="_blank"
               >
@@ -48,17 +49,46 @@ export default function Footer() {
             </li>
           </ul>
 
-          <a href="#top">
-            <Button
-              variant="ghost"
-              className="p-0 h-[1rem] min-h-0 leading-none text-sm text-gray-500 dark:text-gray-400"
-            >
-              _Top
-            </Button>
-          </a>
+          <ul className="flex flex-col space-y-2">
+            <a href="#top">
+              <Button
+                variant="ghost"
+                className="p-0 h-[1rem] min-h-0 leading-none text-sm text-gray-500 dark:text-gray-400"
+              >
+                _Top
+              </Button>
+            </a>
+
+            <li>
+              <Link
+                className="text-sm text-gray-500 transition-colors dark:text-gray-400 hover:text-slate-900 dark:hover:text-slate-50"
+                href="/"
+              >
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                className="text-sm text-gray-500 transition-colors dark:text-gray-400 hover:text-slate-900 dark:hover:text-slate-50"
+                href="/my-profile"
+              >
+                My Profile
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                className="text-sm text-gray-500 transition-colors dark:text-gray-400 hover:text-slate-900 dark:hover:text-slate-50"
+                href="/portfolio"
+              >
+                Portfolio
+              </Link>
+            </li>
+          </ul>
         </div>
 
-        <p className="text-xs mt-6 opacity-70">
+        <p className="mt-6 text-xs opacity-70">
           &copy; {new Date().getFullYear()} Kevin Carl David
         </p>
       </div>
