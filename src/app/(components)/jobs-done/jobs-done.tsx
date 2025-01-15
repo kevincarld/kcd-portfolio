@@ -17,10 +17,10 @@ export default function JobsDone({jobsDone, laymanJobsDone}: Props){
   useEffect(() => {
     if (window !== undefined) {
       const localViewAs = localStorage.getItem("kcd-viewas");
-      if (localViewAs === "techy") {
-        setViewAs("techy");
-      } else {
+      if (localViewAs === "layman") {
         setViewAs("layman");
+      } else {
+        setViewAs("techy");
       }
     }
   }, []);
