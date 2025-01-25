@@ -18,7 +18,7 @@ export default function Footer() {
                 Resumé
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 className="flex items-center text-sm"
                 href="mailto:kevincarld@gmail.com"
@@ -26,7 +26,7 @@ export default function Footer() {
                 <FiMail className="inline-block mr-2 " />
                 kevincarld@gmail.com
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 className="flex items-center text-sm"

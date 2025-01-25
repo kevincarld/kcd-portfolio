@@ -85,14 +85,14 @@ export default async function About() {
               </a>
             </div>
 
-            <span className="hidden sm:block bg-gray-300 h-6 w-px mx-6 " />
+            {/* <span className="hidden sm:block bg-gray-300 h-6 w-px mx-6 " />
 
             <a
               className="md:hover:-translate-y-1 md:duration-700 text-sm text-gray-500 dark:text-gray-300"
               href={`mailto:${settings?.email}`}
             >
               kevincarld@gmail.com
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
