@@ -4,7 +4,7 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiJavascript,
-  SiApollographql,
+  SiGo,
   SiGraphql,
   SiNodedotjs,
   SiShopify,
@@ -32,12 +32,15 @@ export default function MyStack() {
       { MUI: <SiMui /> },
     ],
     backend: [
+      { Go:<SiGo />},
       { "Node JS": <SiNodedotjs /> },
       { PHP: <SiPhp /> },
+    ],
+    cms: [
       { WordPress: <SiWordpress /> },
       { Shopify: <SiShopify /> },
       { Strapi: <SiStrapi /> },
-    ],
+    ]
   };
 
   return (
@@ -64,10 +67,31 @@ export default function MyStack() {
       </div>
 
       <h2 className="mt-6 text-xl text-black md:text-lg dark:text-white">
-        Backend/CMS stack:
+        Backend stack:
       </h2>
       <div className="grid grid-cols-3 gap-6 mt-10 md:grid-cols-5 lg:grid-cols-8">
         {logos.backend.map((logoObj, index: number) => {
+          const [tech, icon] = Object.entries(logoObj)[0];
+
+          return (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center col-span-1 lg:col-span-1"
+            >
+              <span className="text-3xl text-black dark:text-white">
+                {icon}
+              </span>
+              <span className="mt-3 text-sm">{tech}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <h2 className="mt-6 text-xl text-black md:text-lg dark:text-white">
+       CMS:
+      </h2>
+      <div className="grid grid-cols-3 gap-6 mt-10 md:grid-cols-5 lg:grid-cols-8">
+        {logos.cms.map((logoObj, index: number) => {
           const [tech, icon] = Object.entries(logoObj)[0];
 
           return (
